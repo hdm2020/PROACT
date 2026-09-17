@@ -44,7 +44,7 @@ PROACT provides a unified workflow for:
 
 For a minimal reproducible example:
 
-[Get started with PROACT](get-started.qmd)
+[Get started with PROACT](tutorials/PROACT.get-started.ipynb)
 
 ## Application Tutorials
 
