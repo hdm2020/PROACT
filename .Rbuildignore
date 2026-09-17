@@ -5,4 +5,5 @@
 ^\.github$
 ^_site$
 ^\.quarto$
+^resources$
 ^README.*\.html$

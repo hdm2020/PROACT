@@ -83,7 +83,7 @@ library(PROACT)
 
 ## Prior data
 
-The prior TF-pair databases are supplied by the user and are not bundled with PROACT. The directory passed to `build_prior()` should contain the following files:
+PROACT uses TF-pair prior evidence from BioGRID, STRING, RF2PPI, and CAP-SELEX. A preprocessed prior-data archive used in the tutorials is provided separately through the PROACT GitHub Releases page. The directory passed to `build_prior()` should contain the following files:
 
 ```text
 PPI_data/human/
@@ -93,7 +93,7 @@ PPI_data/human/
 └── CAPSELEX.tsv
 ```
 
-We provide these files at data/PPI_data/human.zip. The JASPAR motif-to-TF annotation used internally by PROACT is bundled with the package as `extdata/metadata.tsv`.
+The JASPAR motif-to-TF annotation used internally by PROACT is bundled with the package as `extdata/metadata.tsv`.
 
 ## Quick Start
 

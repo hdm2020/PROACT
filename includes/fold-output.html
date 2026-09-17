@@ -1,0 +1,52 @@
+<style>
+details.output-fold {
+  margin: 0.5rem 0 1rem 0;
+}
+
+details.output-fold > summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+details.output-fold[open] > summary {
+  margin-bottom: 0.75rem;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const outputs = document.querySelectorAll(
+    ".cell-output-stdout, .cell-output-stderr"
+  );
+
+  outputs.forEach(function (output) {
+
+    const text = output.innerText || "";
+    const lineCount = text.split(/\r?\n/).length;
+
+    // Keep short outputs visible.
+    if (lineCount <= 8 && text.length <= 800) {
+      return;
+    }
+
+    // Avoid wrapping the same output twice.
+    if (output.closest("details.output-fold")) {
+      return;
+    }
+
+    const details = document.createElement("details");
+    details.className = "output-fold";
+
+    const summary = document.createElement("summary");
+    summary.textContent = "Show output";
+
+    output.parentNode.insertBefore(details, output);
+    details.appendChild(summary);
+    details.appendChild(output);
+  });
+
+});
+</script>

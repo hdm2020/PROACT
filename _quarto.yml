@@ -76,10 +76,11 @@ format:
     toc-title: "On this page"
     toc-depth: 3
     smooth-scroll: true
-    code-fold: true
-    code-summary: "Show code"
+    code-fold: show
+    code-summary: "Hide/Show code"
     code-copy: true
     code-overflow: wrap
+    include-after-body: includes/fold-output.html
     anchor-sections: true
     fig-align: center
 
