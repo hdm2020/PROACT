@@ -18,60 +18,71 @@ details.output-fold[open] > summary {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+  function isOutputElement(el) {
+    return Array.from(el.classList).some(function (x) {
+      return x.startsWith("cell-output");
+    });
+  }
+
+  function hasVisualOutput(el) {
+    return el.querySelector(
+      "img, svg, canvas, table, iframe, video, audio, .html-widget"
+    ) !== null;
+  }
+
+  function foldOutputs(outputs) {
+    if (outputs.length === 0) return;
+
+    const first = outputs[0];
+
+    const details = document.createElement("details");
+    details.className = "output-fold";
+
+    const summary = document.createElement("summary");
+    summary.textContent = "Show output";
+
+    first.parentNode.insertBefore(details, first);
+    details.appendChild(summary);
+
+    outputs.forEach(function (output) {
+      details.appendChild(output);
+    });
+  }
+
   document.querySelectorAll(".cell").forEach(function (cell) {
 
     const children = Array.from(cell.children);
-    let group = [];
 
-    function foldGroup() {
-      if (group.length === 0) return;
-
-      const text = group
-        .map(function (el) {
-          return el.innerText || "";
-        })
-        .join("\n");
-
-      const lineCount = text.split(/\r?\n/).length;
-
-      // Keep short text outputs visible
-      if (lineCount <= 8 && text.length <= 800) {
-        group = [];
-        return;
-      }
-
-      const first = group[0];
-
-      const details = document.createElement("details");
-      details.className = "output-fold";
-
-      const summary = document.createElement("summary");
-      summary.textContent = "Show output";
-
-      first.parentNode.insertBefore(details, first);
-      details.appendChild(summary);
-
-      group.forEach(function (output) {
-        details.appendChild(output);
-      });
-
-      group = [];
-    }
-
-    children.forEach(function (child) {
-
-      if (
-        child.classList.contains("cell-output-stdout") ||
-        child.classList.contains("cell-output-stderr")
-      ) {
-        group.push(child);
-      } else {
-        foldGroup();
-      }
-
+    const outputs = children.filter(function (child) {
+      return isOutputElement(child);
     });
 
-    foldGroup();
+    if (outputs.length === 0) return;
+
+    const text = outputs
+      .map(function (output) {
+        return output.innerText || "";
+      })
+      .join("\n");
+
+    const lineCount = text.split(/\r?\n/).length;
+
+    // Keep short outputs visible.
+    if (lineCount <= 8 && text.length <= 800) {
+      return;
+    }
+
+    // Keep cells containing figures/tables/widgets visible.
+    const containsVisual = outputs.some(function (output) {
+      return hasVisualOutput(output);
+    });
+
+    if (containsVisual) {
+      return;
+    }
+
+    // Fold all text-like outputs from this cell together.
+    foldOutputs(outputs);
 
   });
 
