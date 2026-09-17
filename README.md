@@ -55,8 +55,6 @@ The PROACT workflow consists of four major stages:
 
 ## Installation
 
-PROACT requires **R >= 4.1.0**.
-
 To install the development version from GitHub:
 
 ```r
