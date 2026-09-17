@@ -2,7 +2,7 @@
 
 **PROACT** is an R package for inferring candidate cooperative transcription factor (TF) pairs from chromatin accessibility and motif occupancy data. PROACT integrates multi-source TF-pair prior evidence with priority-LASSO regression and provides downstream tools for TF cooperation network visualization and spatial TF-pair grammar analysis.
 
-![PROACT workflow](figures/PROACT_workflow.png){fig-align="center" width="95%"}
+![PROACT workflow](figures/PROACT_workflow.png)
 
 
 ## Overview
