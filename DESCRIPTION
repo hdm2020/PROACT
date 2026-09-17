@@ -1,0 +1,39 @@
+Package: PROACT
+Type: Package
+Title: Prior-Regularized Optimization for Analysis of Co-occurring TFs
+Version: 0.1.0
+Authors@R:
+    person("Dongmei", "Han", email = "handongmei@ucas.ac.cn",
+           role = c("aut", "cre"))
+Description: Implements PROACT, a prior-informed framework for inferring
+    candidate cooperative transcription factor associations from chromatin
+    accessibility and motif occupancy. The package constructs prior evidence
+    matrices, prepares binary peak-by-TF matrices, fits priority LASSO models,
+    characterizes spatial motif grammar, and visualizes inferred TF-TF networks.
+URL: https://github.com/hdm2020/PROACT
+BugReports: https://github.com/hdm2020/PROACT/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 4.1.0)
+Imports:
+    BiocParallel,
+    dplyr,
+    GenomicRanges,
+    ggplot2,
+    ggraph,
+    igraph,
+    IRanges,
+    patchwork,
+    prioritylasso,
+    S4Vectors,
+    scales,
+    GenomeInfoDb,
+    stats,
+    utils
+Suggests:
+    Seurat,
+    Signac
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
+LazyData: true

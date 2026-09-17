@@ -1,0 +1,93 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - tutorials/PROACT.get-started.ipynb
+    - tutorials/PROACT.hPBMC.ipynb
+    - tutorials/PROACT.COVID-19.ipynb
+    - tutorials/PROACT.pancancer.ipynb
+    - tutorials/PROACT.bulk.ipynb
+
+website:
+  title: "PROACT"
+  description: >
+    Prior-Regularized Optimization for Analysis of Co-occurring TFs
+  site-url: "https://hdm2020.github.io/PROACT/"
+  repo-url: "https://github.com/hdm2020/PROACT"
+  repo-actions: [source, issue]
+
+  navbar:
+    pinned: true
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Get Started"
+        href: tutorials/PROACT.get-started.ipynb
+      - text: "Tutorials"
+        menu:
+          - text: "Human PBMC scATAC-seq"
+            href: tutorials/PROACT.hPBMC.ipynb
+          - text: "COVID-19 PBMC scATAC-seq"
+            href: tutorials/PROACT.COVID-19.ipynb
+          - text: "Pan-cancer CAF scATAC-seq"
+            href: tutorials/PROACT.pancancer.ipynb
+          - text: "Bulk DNase-seq"
+            href: tutorials/PROACT.bulk.ipynb
+    right:
+      - icon: github
+        href: "https://github.com/hdm2020/PROACT"
+        aria-label: "GitHub"
+
+  sidebar:
+    style: floating
+    contents:
+      - section: "Getting Started"
+        contents:
+          - text: "Home"
+            href: index.qmd
+          - text: "Get Started"
+            href: tutorials/PROACT.get-started.ipynb
+      - section: "Application Tutorials"
+        contents:
+          - text: "Human PBMC scATAC-seq"
+            href: tutorials/PROACT.hPBMC.ipynb
+          - text: "COVID-19 PBMC scATAC-seq"
+            href: tutorials/PROACT.COVID-19.ipynb
+          - text: "Pan-cancer CAF scATAC-seq"
+            href: tutorials/PROACT.pancancer.ipynb
+          - text: "Bulk DNase-seq"
+            href: tutorials/PROACT.bulk.ipynb
+
+  page-navigation: true
+  back-to-top-navigation: true
+
+  page-footer:
+    left: "PROACT — Prior-Regularized Optimization for Analysis of Co-occurring TFs"
+    right:
+      - icon: github
+        href: "https://github.com/hdm2020/PROACT"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-title: "On this page"
+    toc-depth: 3
+    smooth-scroll: true
+    code-fold: true
+    code-summary: "Show code"
+    code-copy: true
+    code-overflow: wrap
+    anchor-sections: true
+    fig-align: center
+
+author:
+  - name: "Dongmei Han"
+
+date: last-modified
+date-format: "MMMM D, YYYY"
+
+execute:
+  enabled: false

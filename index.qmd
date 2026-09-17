@@ -1,0 +1,65 @@
+---
+title: "PROACT"
+subtitle: "Prior-Regularized Optimization for Analysis of Co-occurring TFs"
+page-layout: full
+---
+
+PROACT is an R package for inferring candidate cooperative transcription
+factor pairs from chromatin accessibility and motif occupancy data by
+integrating multi-source TF-pair prior evidence with priority-LASSO
+regression.
+
+![](figures/PROACT_workflow.png){fig-align="center" width="95%"}
+
+## Installation
+
+Install the development version of PROACT from GitHub:
+
+```r
+if (!requireNamespace("remotes", quietly = TRUE)) {
+    install.packages("remotes")
+}
+
+remotes::install_github("hdm2020/PROACT")
+```
+
+Then load the package:
+
+```r
+library(PROACT)
+```
+
+## What does PROACT do?
+
+PROACT provides a unified workflow for:
+
+- constructing peak-by-TF motif occupancy matrices;
+- integrating multi-source TF-pair prior evidence;
+- inferring candidate cooperative TF pairs using priority LASSO;
+- visualizing TF cooperation networks;
+- characterizing TF-pair spatial grammar, including spacing,
+  orientation, and motif order.
+
+## Get Started
+
+For a minimal reproducible example:
+
+[Get started with PROACT](get-started.qmd)
+
+## Application Tutorials
+
+### Single-cell chromatin accessibility
+
+- [Human PBMC scATAC-seq](tutorials/PROACT.hPBMC.ipynb)
+- [COVID-19 PBMC scATAC-seq](tutorials/PROACT.COVID-19.ipynb)
+- [Pan-cancer CAF scATAC-seq](tutorials/PROACT.pancancer.ipynb)
+
+### Bulk chromatin accessibility
+
+- [Bulk DNase-seq](tutorials/PROACT.bulk.ipynb)
+
+## Citation
+
+If you use PROACT in your research, please cite:
+
+> Citation information will be added upon publication.
